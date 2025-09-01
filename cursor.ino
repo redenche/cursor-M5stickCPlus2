@@ -120,15 +120,6 @@ case true:
    if(h == true){
        M5.Lcd.fillCircle(150, 20, 5, BLUE);
    }
-   if(s == true){
-  M5.Lcd.fillRect(ys, xs, 80, 40, 0xbbbb);
-  M5.Lcd.fillRect(ys + 2, xs + 2, 10, 10, BLUE);
-  M5.Lcd.setCursor(ys + 2, xs + 12);
-  M5.Lcd.print("hold BtnA to exit");
- if(M5.BtnA.wasPressed() && y >= ys + 2 && y <= ys +12 && x >= xs + 2 && x <= xs + 12){
-   M5.Lcd.drawRect(ys + 2, xs + 2, 10, 10,  GREEN);
- }
-   }
    //цикл для регулировки ползунка
    for( ; r == true ; ){
           M5.Imu.getAccelData(&accX, &accY, &accZ);
@@ -163,7 +154,16 @@ case true:
      M5.Lcd.drawCircle(150, 20, 7, BLUE);
                 M5.Lcd.setCursor(150, 35);
      M5.Lcd.print("checkbox1");
-}   
+     if(s == true){
+  M5.Lcd.fillRect(ys, xs, 80, 40, 0xbbbb);
+  M5.Lcd.fillRect(ys + 2, xs + 2, 10, 10, BLUE);
+  M5.Lcd.setCursor(ys + 2, xs + 12);
+  M5.Lcd.print("hold BtnA to exit");
+ if(M5.BtnA.wasPressed() && y >= ys + 2 && y <= ys +12 && x >= xs + 2 && x <= xs + 12){
+   M5.Lcd.drawRect(ys + 2, xs + 2, 10, 10,  GREEN);
+ }
+   }
+}    
 void cursor1(){
   //обновление кнопок и прочего
         StickCP2.update();
